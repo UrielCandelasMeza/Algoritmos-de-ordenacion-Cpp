@@ -1,0 +1,9 @@
+# Compilacion
+build/
+programa
+main
+
+# Objetos y binarios comunes
+*.o
+*.out
+*.exe
