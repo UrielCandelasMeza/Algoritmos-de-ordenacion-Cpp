@@ -27,6 +27,24 @@ void Modules::bubbleSort(vector<int>& array) {
 }
 
 void Modules::insertionSort(vector<int>& array) {
+  size_t n = array.size();
+
+  for(size_t i = 1; i < n; i++) {
+
+    int key = array[i];
+
+    int j = i - 1;
+
+    while(j >= 0 && array[j] > key){
+      array[j + 1] = array[j];
+      j -= 1;
+    }
+
+    array[j + 1] = key;
+
+  }
+
+  printArr(array);
 
 }
 
@@ -49,7 +67,7 @@ void Modules::shellSort(vector<int>& array) {
   size_t n = array.size();
 
   for (int gap = n / 2; gap > 0; gap /= 2) {
-    for (int i = gap; i < n; i++) {
+    for (size_t i = gap; i < n; i++) {
       int temp = array[i];
       int j = i;
       while (j >= gap && array[j - gap] > temp) {
@@ -71,7 +89,9 @@ int Modules::piviot() {
 }
 
 void Modules::printArr(vector<int>& array) {
-    for (size_t i = 0; i < array.size(); i++) {
-        cout << "Elemento [" << i << "]: " << array[i] << endl;
-    }
+  int i = 0;
+  for (auto e : array) {
+    cout << "Elemento [" << i << "]: " << e << endl;
+    i++;
+  }
 }

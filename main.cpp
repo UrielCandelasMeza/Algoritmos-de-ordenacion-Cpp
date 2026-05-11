@@ -35,23 +35,43 @@ int main(void) {
         cout << "Se va a usar una copia del array" << endl;
         modules.bubbleSort(copy);
         break;
+      case 2:
+        cout << "Se va a usar una copia del array" << endl;
+        modules.insertionSort(copy);
+        break;
       case 3:
-        cout << "Se va a usar una copia de array" << endl;
+        cout << "Se va a usar una copia del array" << endl;
         modules.selectionSort(copy);
+        break;
+      case 4:
+        cout << "Se va a usar una copia del array" << endl;
+        modules.quickSort(copy);
         break;
       case 5:
         cout << "Se va a usar una copia del array" << endl;
         modules.shellSort(copy);
         break;
       case 6:
+        cout << "Se va a usar una copia del array" << endl;
+        modules.heapSort(copy);
+        break;
+      case 7:
         do {
           ok = insertNumbers(array, maxNumbers);
         } while(!ok);
         copy = array;
         break;
+      case 8:
+        modules.binarySearch(copy);
+        break;
+      case 9:
+        modules.linealSearch(copy);
+        break;
       case OPTIONS:
         exit = true;
         break;
+      default:
+        cout << selection << endl;
     }
 
     if (selection != OPTIONS) {
