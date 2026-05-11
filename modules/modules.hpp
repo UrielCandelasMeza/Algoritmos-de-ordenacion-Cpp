@@ -13,6 +13,7 @@ public:
     void binarySearch(vector<int>& array);
 
 private:
-    int piviot();
+    void quickSortOP(vector<int>& array, int low, int high);
+    int pivot(int low, int high, vector<int>& array);
     void printArr(std::vector<int>& array);
 };

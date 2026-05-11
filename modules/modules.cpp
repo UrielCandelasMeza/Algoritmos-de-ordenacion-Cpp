@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <utility>
+#include <vector>
 #include "modules.hpp"
 
 
@@ -28,24 +29,16 @@ void Modules::bubbleSort(vector<int>& array) {
 
 void Modules::insertionSort(vector<int>& array) {
   size_t n = array.size();
-
   for(size_t i = 1; i < n; i++) {
-
     int key = array[i];
-
     int j = i - 1;
-
     while(j >= 0 && array[j] > key){
       array[j + 1] = array[j];
       j -= 1;
     }
-
     array[j + 1] = key;
-
   }
-
   printArr(array);
-
 }
 
 void Modules::selectionSort(vector<int>& array) {
@@ -62,7 +55,8 @@ void Modules::selectionSort(vector<int>& array) {
 
   printArr(array);
 }
-void Modules::quickSort(vector<int>& array) {}
+
+
 void Modules::shellSort(vector<int>& array) {
   size_t n = array.size();
 
@@ -80,12 +74,40 @@ void Modules::shellSort(vector<int>& array) {
 
   printArr(array);
 }
+
+void Modules::quickSort(vector<int>& array) {
+  quickSortOP(array, 0, array.size() - 1);
+  printArr(array);
+}
+
 void Modules::heapSort(vector<int>& array) {}
 void Modules::linealSearch(vector<int>& array) {}
 void Modules::binarySearch(vector<int>& array) {}
 
-int Modules::piviot() {
-    return 0;
+void Modules::quickSortOP(vector<int>& array, int low, int high) {
+  if (low < high) {
+    int pivot = Modules::pivot(low, high, array);
+    quickSortOP(array, low, pivot - 1);
+    quickSortOP(array, pivot + 1, high);
+  }
+}
+
+
+int Modules::pivot(int low, int high, vector<int>& array) {
+  int pivot = array[high];
+
+  int j = low - 1;
+
+  for(size_t i = low; i < high; i++) {
+    if (array[i] <= pivot) {
+      j++;
+      swap(array[i], array[j]);
+    }
+  }
+
+  swap(array[j + 1], array[high]);
+
+  return j + 1;
 }
 
 void Modules::printArr(vector<int>& array) {
